@@ -1,4 +1,3 @@
-console.log("hi yao");
 var numSquares = 6;
 var colors = generateRandomColor(numSquares);
 var squares = document.querySelectorAll(".square");
@@ -13,7 +12,7 @@ var hardBtn = document.getElementById("hardBtn");
 easyBtn.addEventListener("click", function () {
     numSquares = 3;
     reset.textContent = "New colors";
-    h1.style.backgroundColor = "steelblue";
+    h1.style.backgroundColor = "#dc7a78";
     messageDisplay.textContent = "";
     this.classList.add("selected");
     hardBtn.classList.remove("selected");
@@ -31,7 +30,7 @@ easyBtn.addEventListener("click", function () {
 hardBtn.addEventListener("click", function () {
     numSquares = 6;
     reset.textContent = "New colors";
-    h1.style.backgroundColor = "steelblue";
+    h1.style.backgroundColor = "#dc7a78";
     messageDisplay.textContent = "";
     this.classList.add("selected");
     easyBtn.classList.remove("selected");
@@ -56,7 +55,7 @@ reset.addEventListener("click", function () {
         // initial colors
         squares[i].style.backgroundColor = colors[i];
     }
-    h1.style.backgroundColor = "steelblue";
+    h1.style.backgroundColor = "#dc7a78";
 });
 colorDisplay.textContent = pickedColor;
 for (i = 0; i < squares.length; i++) {
@@ -67,16 +66,15 @@ for (i = 0; i < squares.length; i++) {
         //grab color from clicked squares
         var clickedColor = this.style.backgroundColor;
         //compare color to pickedColor
-        console.log(clickedColor, pickedColor);
         if (clickedColor === pickedColor) {
             this.style.backgroundColor = pickedColor;
-            messageDisplay.textContent = "Correct 😊";
+            messageDisplay.textContent = "😊 Correct 😊";
             reset.textContent = "Play it again? ";
             changeColors(clickedColor);
             h1.style.backgroundColor = clickedColor;
         } else {
             this.style.backgroundColor = "#232323";
-            messageDisplay.textContent = "Try it again 💪";
+            messageDisplay.textContent = "💪 Try it again 💪";
         }
     });
 }
@@ -90,7 +88,6 @@ function changeColors(color) {
 function pickColor() {
     // random 0-5
     var random = Math.floor(Math.random() * colors.length);
-    // console.log(random);
     return colors[random];
 }
 function generateRandomColor(num) {
